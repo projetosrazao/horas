@@ -12,10 +12,13 @@ namespace horas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            String connString = @"Driver={C:\\Program Files\\SQL Anywhere 16\\Bin32\\dbodbc16.dll};userid=userext;servername=envel;autostop=YES;integrated=NO;filedsn=C:\*****\*****.db.dsn;debug=NO;disablemultirowfetch=NO;commlinks='SharedMemory,TCPIP{host=192.168.1.209}';compress=NO;password=Razao@123";
-            OdbcConnection myConnection = new OdbcConnection(connString);
-            
-           
+            var connectionString = @"Driver={C:\\Program Files\\SQL Anywhere 16\\Bin32\\dbodbc16.dll};DatabaseName=envel;EngineName=srvenvel;uid=userext;pwd=Razao@123;LINKs=tcpip(host=192.168.1.209)";
+            using (var cn = new OdbcConnection(connectionString))
+            {
+                var cmd = new OdbcCommand("SELECT  *, ano = ?, mes = ?, dia = ? FROM bethadba.geloguser WHERE bethadba.geloguser.data_log = YMD(string(ano),string(mes),string(dia)) AND bethadba.geloguser.usua_log = ? ORDER BY usua_log ASC", cn);
+                cn.Open();
+
+
             }
-    }
+        }
 }
