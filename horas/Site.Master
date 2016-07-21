@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> Horas de Serviço por Usuário</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -16,6 +16,9 @@
 
 </head>
 <body>
+    <center>
+        <h1>Horas de Trabalho por Usuário</h1>
+    </center>
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -63,7 +66,9 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <center>
+                <p>&copy; <%: DateTime.Now.Year %> - TI Razão Envel</p>
+                </center>
             </footer>
         </div>
 

@@ -16,7 +16,7 @@ namespace horas
             using (var cn = new OdbcConnection(connectionString))
             {
                 var cmd = new OdbcCommand("SELECT  " + TextBox1.Text +", ano = "+Calendar1.VisibleDate.Year.ToString()+", mes =, dia = ? FROM bethadba.geloguser WHERE bethadba.geloguser.data_log = YMD(string(ano),string(mes),string(dia)) AND bethadba.geloguser.usua_log = ? ORDER BY usua_log ASC", cn);
-                cn.Open();
+               
 
 
             }
