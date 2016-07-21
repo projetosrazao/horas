@@ -15,7 +15,7 @@ namespace horas
             var connectionString = @"Driver={C:\\Program Files\\SQL Anywhere 16\\Bin32\\dbodbc16.dll};DatabaseName=envel;EngineName=srvenvel;uid=userext;pwd=Razao@123;LINKs=tcpip(host=192.168.1.209)";
             using (var cn = new OdbcConnection(connectionString))
             {
-                var cmd = new OdbcCommand("SELECT  *, ano = ?, mes = ?, dia = ? FROM bethadba.geloguser WHERE bethadba.geloguser.data_log = YMD(string(ano),string(mes),string(dia)) AND bethadba.geloguser.usua_log = ? ORDER BY usua_log ASC", cn);
+                var cmd = new OdbcCommand("SELECT  " + TextBox1.Text +", ano = "+Calendar1.VisibleDate.Year.ToString()", mes = ?, dia = ? FROM bethadba.geloguser WHERE bethadba.geloguser.data_log = YMD(string(ano),string(mes),string(dia)) AND bethadba.geloguser.usua_log = ? ORDER BY usua_log ASC", cn);
                 cn.Open();
 
 
