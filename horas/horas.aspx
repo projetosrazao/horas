@@ -18,7 +18,7 @@
         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Calcular" />
         </br>
     <div>
-        <asp:Label ID="Label1" runat="server" Text="As horas de trabalho do usuario foram: " ></asp:Label>
+        <asp:Label ID="Label1" runat="server" Text="" ></asp:Label>
     </div>
         </center>
 </asp:Content>
