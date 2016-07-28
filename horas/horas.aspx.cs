@@ -21,7 +21,7 @@ namespace horas
         {
             string usuarioSelecionado = DropDownList1.ToString();
             string dataSelecionada = Calendar1.SelectedDate.ToString("YYYY-MM-DD");
-            string conexao = "Driver=C:\\Program Files\\SQL Anywhere 16\\Bin32\\dbodbc16.dll, UID = userext, PWD = Razao@123, DatabaseName = envel, ServerName = srvenvel, Host = 192.168.1.209";
+            string conexao = "Data Source=192.168.1.209;Database=envel;Uid=userext;Pwd=Razao@123; ";
             SqlConnection conecta = new SqlConnection(conexao);
             conecta.Open();
             string pesquisa = "SELECT  top 1  usua_log, tini_log, tfim_log FROM bethadba.geloguser WHERE bethadba.geloguser.data_log = dataSelecionada AND bethadba.geloguser.usua_log = usuarioSelecionado";
