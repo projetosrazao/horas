@@ -21,11 +21,20 @@ namespace horas
         {
             string usuarioSelecionado = DropDownList1.ToString();
             string dataSelecionada = Calendar1.SelectedDate.ToString("YYYY-MM-DD");
-            string conexao = "Data Source=192.168.1.209;Database=envel;Uid=userext;Pwd=Razao@123; ";
-            SqlConnection conecta = new SqlConnection(conexao);
-            conecta.Open();
-            string pesquisa = "SELECT  top 1  usua_log, tini_log, tfim_log FROM bethadba.geloguser WHERE bethadba.geloguser.data_log = dataSelecionada AND bethadba.geloguser.usua_log = usuarioSelecionado";
-            
+            string pesquisa1 = "SELECT codi_usu,ISNULL(DATEDIFF(minute,hori_atv,horf_atv),0) , FROM bethadba.geatividades where fina_atv = 's' and bethadba.geatividades.codi_usu = usuarioSelecionado and bethadba.geatividades.data_atv = dataSelecionada";
+            conectionFactory conn = new conectionFactory();
+            OdbcConnection conn_dom = conn.string_dominio();
+
+            conn_dom.Open();
+
+            OdbcCommand cmd = new OdbcCommand(pesquisa1, conn_dom);
+            OdbcDataReader reader = cmd.ExecuteReader();
+           
+            reader.Read();
+                //aqui colocar tudo que for ler do SQL, antes um while ++ para repetir o metodo, pois ele só pega o primeiro valor;
+            reader.Close();
+
+            conn_dom.Close();
         }
     }
     }
